@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Sayfası</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin-top: 100px; }
+        .giris-formu { display: none; }
+    </style>
+</head>
+<body>
+    <h1>Hoş Geldiniz</h1>
+    <button onclick="girisEkraniniGoster()">Giriş</button><div class="giris-formu" id="girisForm">
+    <h2>Giriş Yap</h2>
+    <input type="text" id="kullaniciAdi" placeholder="Kullanıcı Adı"><br><br>
+    <input type="password" id="sifre" placeholder="Şifre"><br><br>
+    <button onclick="girisYap()">Giriş Yap</button>
+</div>
+
+<script>
+    function girisEkraniniGoster() {
+        document.getElementById("girisForm").style.display = "block";
+    }
+    
+    function girisYap() {
+        var kullaniciAdi = document.getElementById("kullaniciAdi").value;
+        var sifre = document.getElementById("sifre").value;
+        
+        if (kullaniciAdi && sifre) {
+            alert("Hoş Geldiniz, " + kullaniciAdi + "!");
+        } else {
+            alert("Lütfen kullanıcı adı ve şifre giriniz.");
+        }
+    }
+</script>
+
+</body>
+</html>
