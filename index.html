@@ -4,27 +4,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giriş Sayfası</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; margin-top: 100px; }
-        .giris-formu { display: none; }
+        body { text-align: center; font-family: Arial, sans-serif; margin-top: 100px; background-color: purple; color: white; }
+        .giris-formu { display: none; background-color: blue; padding: 20px; border-radius: 10px; }
+        .container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
     </style>
 </head>
 <body>
+    <div class="container" id="anaEkran">
+        <h1>Hoş Geldiniz</h1>
+        <button onclick="girisEkraniniGoster()">Giriş Yap</button>
+    </div><div class="container giris-formu" id="girisForm">
     <h1>Hoş Geldiniz</h1>
-    <button onclick="girisEkraniniGoster()">Giriş</button><div class="giris-formu" id="girisForm">
-    <h2>Giriş Yap</h2>
     <input type="text" id="kullaniciAdi" placeholder="Kullanıcı Adı"><br><br>
-    <input type="password" id="sifre" placeholder="Şifre"><br><br>
+    <input type="password" id="sifre" placeholder="Şifre (En az 12 karakter)" minlength="12"><br><br>
     <button onclick="girisYap()">Giriş Yap</button>
 </div>
 
 <script>
     function girisEkraniniGoster() {
-        document.getElementById("girisForm").style.display = "block";
+        document.getElementById("anaEkran").style.display = "none";
+        document.getElementById("girisForm").style.display = "flex";
     }
     
     function girisYap() {
         var kullaniciAdi = document.getElementById("kullaniciAdi").value;
         var sifre = document.getElementById("sifre").value;
         
-        if (kullaniciAdi && sifre) {
-            alert("Hoş Geldiniz, " + kullaniciAdi +
+        if (kullaniciAdi && sifre.length >= 12) {
+            alert("İşlem başarıyla onaylandı");
+        } else {
+            alert("Lütfen geçerli bir kullanıcı adı ve en az 12 karakterli şifre giriniz.");
+        }
+    }
+</script>
+
+</body>
+</html>
